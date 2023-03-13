@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lab 7</title>
+  <script src="script.js"></script>
+  <script>
+    function myFunction() {
+      console.log('Button clicked!');
+    }
+
+    function findLargestNumber(numbers) {
+      let largestNumber = numbers[0];
+      for (let i = 1; i < numbers.length; i++) {
+        if (numbers[i] > largestNumber) {
+          largestNumber = numbers[i];
+        }
+      }
+      return largestNumber;
+    }
+
+    const numbers = [5, 3, 8, 1, 9];
+    const largestNumber = findLargestNumber(numbers);
+    console.log(largestNumber);
+
+    const xhr = new XMLHttpRequest();
+
+    // Set the HTTP method and URL
+    xhr.open('GET', 'https://jsonplaceholder.typicode.com/todos/1');
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        const response = JSON.parse(xhr.responseText);
+        console.log(response);
+      } else {
+        console.error('Error:', xhr.statusText);
+      }
+    };
+    xhr.send();
+  </script>
+</head>
+<body>
+  <button onclick="myFunction()">Click me</button>
+</body>
+</html>
